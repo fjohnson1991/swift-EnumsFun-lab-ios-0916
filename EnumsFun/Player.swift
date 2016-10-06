@@ -9,4 +9,52 @@
 import Foundation
 
 class Player {
+    
+    let name: String
+    var hand: Hand
+    
+    init(name: String, hand: Hand) {
+        
+        self.name = name
+        self.hand = hand
+    }
+    
+    func hasCards() -> Bool {
+        
+        if hand.cards.isEmpty {
+            
+            return false
+        }
+        
+        return true
+        
+    }
+    
+    func flip() -> Card? {
+        
+        var firstCard: Card?
+        
+        if hasCards() == true {
+            
+            firstCard = hand.cards.remove(at: 0)
+        
+        }
+        
+        return firstCard
+        
+    }
+
+    
+    func give(card: Card) {
+        
+        hand.give(card: card)
+    }
+    
+    
+    func lose(card: Card) {
+        
+        hand.lose(card: card)
+    }
+
+    
 }
